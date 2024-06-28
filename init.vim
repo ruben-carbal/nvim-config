@@ -5,13 +5,15 @@ call plug#begin('~/.config/nvim/plugged') 	"directorio donde se van a instalar l
 "plugins
 Plug 'joshdick/onedark.vim' 		"tema
 Plug 'Yggdroot/indentLine' 		"indentacion
-Plug 'mattn/emmet-vim' 			"emmet para diseño web
+"Plug 'mattn/emmet-vim' 			"emmet para diseño web
 Plug 'vim-airline/vim-airline'		"diseño de la barra en la cual se muestran los modos, la linea, etc.
 Plug 'vim-airline/vim-airline-themes'	"temas para el vim-airline
 Plug 'preservim/nerdtree'		"gestor de archivos en forma de arbol.
 Plug 'christoomey/vim-tmux-navigator'	"poder navegar entre archivos abiertos
 Plug 'jiangmiao/auto-pairs'		"autocompletado de llaves, corchetes, etc.
 Plug 'neoclide/coc.nvim', {'branch': 'release'}	"autocompletado inteligente
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' } "Encontrar archivos más fácil.
 
 call plug#end() 			"cerramos el llamado de los plugins
 
@@ -37,7 +39,7 @@ colorscheme onedark 			"activar el tema onedark
 "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 "configuracion de emmet-vim
-let g:user_emmet_leader_key=',' 	"mapeando la tecla lider por una coma, con esto se completa los tag con doble coma.
+"let g:user_emmet_leader_key=',' 	"mapeando la tecla lider por una coma, con esto se completa los tag con doble coma.
 
 
 "configuracion de vim-airline
@@ -45,13 +47,24 @@ let g:airline#extensions#tabline#enabled = 1	"muestra la linea de pestaña en la
 let g:airline#extensions#tabline#formatter = 'unique_tail'	"muestra solo el nombre del archivo que estamos modificando
 let g:airline_theme='onedark'	"el tema de airline
 
+"airline map configuration
+let mapleader = "\<Space>"
+nmap <leader>1 :bfirst<CR>
+nmap <leader>2 :bfirst<CR>:bn<CR>
+nmap <leader>3 :bfirst<CR>:2bn<CR>
+nmap <leader>4 :bfirst<CR>:3bn<CR>
+nmap <leader>5 :bfirst<CR>:4bn<CR>
+nmap <leader>6 :bfirst<CR>:5bn<CR>
+
+
 
 "configuracion de nerdtree
 "mapeando el abrir y cerrar de nerdtree con nerdtreetoggle vemos los archivos en el arbol y podemos cerrarlo a la vez, map es la C mayuscula representa el
 "control y -n la tecla n lo que indica que realizará la siguiente funcion de excribir el comando NERDTreeToggle y CR significa ENTER.
 map <C-n> :NERDTreeToggle<CR>
 
-
+" Configuración de telescope
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
 
 "configuracion por defecto de coc
 " https://raw.githubusercontent.com/neoclide/coc.nvim/master/doc/coc-example-config.vim
