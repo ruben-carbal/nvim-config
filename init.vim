@@ -4,7 +4,7 @@ call plug#begin('~/.config/nvim/plugged') 	"directorio donde se van a instalar l
 
 "plugins
 Plug 'joshdick/onedark.vim' 		"tema
-Plug 'Yggdroot/indentLine' 		"indentacion
+"Plug 'Yggdroot/indentLine' 		"indentacion
 "Plug 'mattn/emmet-vim' 			"emmet para diseño web
 Plug 'vim-airline/vim-airline'		"diseño de la barra en la cual se muestran los modos, la linea, etc.
 Plug 'vim-airline/vim-airline-themes'	"temas para el vim-airline
@@ -14,6 +14,7 @@ Plug 'jiangmiao/auto-pairs'		"autocompletado de llaves, corchetes, etc.
 Plug 'neoclide/coc.nvim', {'branch': 'release'}	"autocompletado inteligente
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' } "Encontrar archivos más fácil.
+Plug 'rebelot/kanagawa.nvim'   "el mejor tema
 
 call plug#end() 			"cerramos el llamado de los plugins
 
